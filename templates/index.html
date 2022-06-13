@@ -24,24 +24,24 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">WHAT2WATCH</a>
+                <a class="navbar-brand" href="{{url_for('home')}}">WHAT2WATCH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Link</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#!">Action</a></li> -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Link0</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('search_results' , Moviequery = 'action')}}">Action</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Link1</a></li>
-                                <li><a class="dropdown-item" href="#!">Link2</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('search_results' , Moviequery = 'comedy')}}">Comedy</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('search_results' , Moviequery = 'romantic')}}">Romantic</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" action = "/search">
+                        <input class="form-control me-2" type="search" required placeholder="Search" aria-label="Search" name="Moviequery">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                       </form>
                 </div>
@@ -58,12 +58,14 @@
                     <h1 class="display-4 fw-bolder">{{page_name}}</h1>
                     <p class="lead fw-normal text-white-50 mb-0">Get Information Of All Latest Movies At One Place</p>
                     <div class="row text-center">
+                        <form action="/search" method="get">
                     <div class="input-group py-5  col-12" >
-                        <input type="text" class="form-control" placeholder="Search Any Movie Name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="Search Any Movie Name" value="{{query}}" name="Moviequery" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
-                          <button class="btn btn-primary" type="button">Search</button>
+                          <input class="btn btn-primary" type="submit" ></button>
                         </div>
                       </div>
+                    </form>
 
                     </div>
                 </div>
