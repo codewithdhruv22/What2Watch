@@ -39,6 +39,6 @@ def search_results():
         print(e)
         return f"NO INTERNET CONNECTION {e}"
 
-    
+app.run(debug=True)
 
 
