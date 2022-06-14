@@ -41,5 +41,3 @@ def search_results():
     
 
 
-
-app.run(debug =  True)
