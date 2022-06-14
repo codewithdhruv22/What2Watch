@@ -27,6 +27,7 @@ def home():
 # POST - Secure (Password , Credit Number )
 def search_results():
     movieName  =  request.args.get("Moviequery")
+    movieName = movieName.strip()
     try:
         url =  f"http://www.omdbapi.com/?s={movieName}&apikey=c4b3701e"
         url = url.replace(" ", "%20")
